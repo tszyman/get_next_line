@@ -6,7 +6,7 @@
 /*   By: tomek <tomek@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 16:54:17 by tszymans          #+#    #+#             */
-/*   Updated: 2024/04/26 18:10:19 by tomek            ###   ########.fr       */
+/*   Updated: 2024/04/26 18:16:20 by tomek            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,64 @@ size_t	ft_strlen(const char *str)
 		strlen += 1;
 	}
 	return (strlen);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t n)
+{
+	size_t	i;
+	char	*s;
+
+	s = (char *)src;
+	i = 0;
+	if (n != 0)
+	{
+		while (*s != '\0' && i < (n - 1))
+		{
+			*dst = *s;
+			dst++;
+			s++;
+			i++;
+		}
+		*dst = '\0';
+	}
+	return (ft_strlen(src));
+}
+
+size_t	ft_strlcat(char *dst, const char *src, size_t n)
+{
+	size_t	i;
+	size_t	len_dst;
+	size_t	len_src;
+	char	*s;
+
+	i = 0;
+	len_dst = ft_strlen(dst);
+	len_src = ft_strlen(src);
+	s = (char *)src;
+	if (n == 0 && !dst)
+		return (len_src);
+	if (n <= len_dst)
+		return (n + len_src);
+	while (i < (n - len_dst - 1) && s[i] != '\0' )
+	{
+		dst[len_dst + i] = s[i];
+		i++;
+	}
+	dst[len_dst + i] = '\0';
+	return (len_dst + len_src);
+}
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	size_t	i;
+
+	if (!dest && !src)
+		return (0);
+	i = 0;
+	while (i < n)
+	{
+		*((unsigned char *)dest + i) = *((unsigned char *)src + i);
+		i++;
+	}
+	return (dest);
 }
