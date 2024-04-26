@@ -13,3 +13,4 @@ Makefile
 # ignore test program
 testy/
 42_get_next_line_tester/
+gnlTester/
