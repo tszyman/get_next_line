@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tszymans <tszymans@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomek <tomek@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 18:14:15 by tomek             #+#    #+#             */
-/*   Updated: 2024/04/10 19:06:10 by tszymans         ###   ########.fr       */
+/*   Updated: 2024/04/26 19:03:45 by tomek            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	read_fd(int fd, char **remind)
 	free(str);
 	return (bytes_read > 0);
 }
-
+ghjh
 
 
 char	*get_next_line(int fd)
