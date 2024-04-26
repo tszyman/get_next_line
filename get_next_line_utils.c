@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tszymans <tszymans@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomek <tomek@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 16:54:17 by tszymans          #+#    #+#             */
-/*   Updated: 2024/04/10 19:04:09 by tszymans         ###   ########.fr       */
+/*   Updated: 2024/04/26 18:10:19 by tomek            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	new = (char *)ft_calloc((s1_len + s2_len + 1), sizeof(char));
+	new = (char *)malloc((s1_len + s2_len + 1) * sizeof(char));
 	if (!new)
 		return (0);
 	ft_strlcpy(new, s1, s1_len + 1);
@@ -48,7 +48,7 @@ char	*ft_strdup(const char *s)
 	char	*dupl;
 
 	s_len = ft_strlen(s);
-	dupl = ft_calloc(s_len + 1, sizeof(char));
+	dupl = (char *)malloc((s_len + 1) * sizeof(char));
 	ft_memcpy(dupl, s, s_len + 1);
 	return (dupl);
 }
@@ -66,10 +66,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (start < s_len)
 		end = s_len - start;
 	else
-		return ((char *)ft_calloc((1), sizeof(char)));
+		return ((char *)((1) * sizeof(char)));
 	if (end > len)
 		end = len;
-	ret = (char *)ft_calloc((end + 1), sizeof(char));
+	ret = (char *)malloc((end + 1) * sizeof(char));
 	if (!ret)
 		return (0);
 	ft_strlcpy(ret, s + start, end + 1);
