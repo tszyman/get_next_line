@@ -6,7 +6,7 @@
 /*   By: tomek <tomek@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 18:14:15 by tomek             #+#    #+#             */
-/*   Updated: 2024/04/28 22:03:43 by tomek            ###   ########.fr       */
+/*   Updated: 2024/04/29 20:06:17 by tomek            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_next(char *remind)
 	i++;
 	j = 0;
 	while (remind[i])
-		line[j++] = remind [i++];
+		line[j++] = remind[i++];
 	free(remind);
 	return (line);
 }
@@ -49,9 +49,9 @@ char	*find_eol(char *remind)
 	char	*line;
 	int		i;
 
-	i = 0;
-	if (!remind[i])
+	if (!*remind)
 		return (NULL);
+	i = 0;
 	while (remind[i] && remind[i] != '\n')
 		i++;
 	line = ft_calloc(i + 2, sizeof(char));
@@ -61,8 +61,8 @@ char	*find_eol(char *remind)
 		line[i] = remind[i];
 		i++;
 	}
-	if (remind[i] && remind[i] != '\n')
-		line[i++] = '\n';
+	if (remind[i] && remind[i] == '\n')
+		line[i] = '\n';
 	return (line);
 }
 

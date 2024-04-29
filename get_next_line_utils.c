@@ -6,7 +6,7 @@
 /*   By: tomek <tomek@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 16:54:17 by tszymans          #+#    #+#             */
-/*   Updated: 2024/04/28 22:02:07 by tomek            ###   ########.fr       */
+/*   Updated: 2024/04/29 19:49:51 by tomek            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (mem_res);
 }
 
-void	*ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
 	char	*str;
@@ -36,7 +36,6 @@ void	*ft_bzero(void *s, size_t n)
 		str++;
 		i++;
 	}
-	return (s);
 }
 
 char	*ft_strchr(const char *s, int c)
