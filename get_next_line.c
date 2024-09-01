@@ -6,7 +6,7 @@
 /*   By: tomek <tomek@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 18:14:15 by tomek             #+#    #+#             */
-/*   Updated: 2024/04/29 20:06:17 by tomek            ###   ########.fr       */
+/*   Updated: 2024/05/24 20:21:06 by tomek            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ char	*read_fd(int fd, char *remind)
 		if (bytes_read == -1)
 		{
 			free(buf);
+			free(remind);
 			return (NULL);
 		}
 		buf[bytes_read] = '\0';
@@ -99,7 +100,7 @@ char	*get_next_line(int fd)
 	char			*line;
 	static char		*buffer;
 
-	if (fd <= -1 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd <= -1 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer = read_fd(fd, buffer);
 	if (!buffer)
